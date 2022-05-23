@@ -2,7 +2,7 @@
   for_each                         = toset(local.resource_locations)
   source                           = "github.com/wesley-trust/tfmodule-linux_virtual_machine"
   service_environment              = terraform.workspace
-  service_deployment               = "01"
+  service_deployment               = var.service_deployment
   service_name                     = var.service_name
   service_location                 = each.value
   resource_name                    = local.resource_name
@@ -18,7 +18,7 @@ module "edge_services_network_peering" {
   for_each                   = toset(local.resource_locations)
   source                     = "github.com/wesley-trust/tfmodule-network_peering"
   service_environment        = terraform.workspace
-  service_deployment         = "01"
+  service_deployment         = var.service_deployment
   service_name               = var.service_name
   service_location           = each.value
   resource_network_peer      = module.edge_services_virtual_machines[each.value]
@@ -30,7 +30,7 @@ module "edge_services_recovery_services" {
   for_each                                    = toset(local.resource_recovery_services_locations)
   source                                      = "github.com/wesley-trust/tfmodule-recovery_services"
   service_environment                         = terraform.workspace
-  service_deployment                          = "01"
+  service_deployment                          = var.service_deployment
   service_name                                = "${var.service_name}-RSV"
   service_location                            = each.value
   resource_name                               = local.resource_name
@@ -42,7 +42,7 @@ module "edge_services_virtual_machines_bcdr" {
   for_each                         = toset(local.resource_bcdr_locations)
   source                           = "github.com/wesley-trust/tfmodule-linux_virtual_machine"
   service_environment              = terraform.workspace
-  service_deployment               = "01"
+  service_deployment               = var.service_deployment
   service_name                     = var.service_name
   service_location                 = each.value
   resource_name                    = local.resource_name
@@ -58,7 +58,7 @@ module "edge_services_network_peering_bcdr" {
   for_each                   = toset(local.resource_bcdr_locations)
   source                     = "github.com/wesley-trust/tfmodule-network_peering"
   service_environment        = terraform.workspace
-  service_deployment         = "01"
+  service_deployment         = var.service_deployment
   service_name               = var.service_name
   service_location           = each.value
   resource_network_peer      = module.edge_services_virtual_machines_bcdr[each.value]

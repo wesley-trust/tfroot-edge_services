@@ -13,14 +13,32 @@ variable "service_location" {
       "UK South"
     ]
 
+    Prod_BCDR = [
+      "North Central US"
+    ]
+
     Dev = [
       "UK South"
     ]
 
-    BCDR = [
+    Dev_BCDR = [
+      "North Central US"
+    ]
+
+    default = [
+      "UK South"
+    ]
+
+    default_BCDR = [
       "North Central US"
     ]
   }
+}
+
+variable "service_deployment" {
+  description = "Desired deployment identifier of the service collection of provisioned resources"
+  type        = string
+  default     = "01"
 }
 
 variable "service_recovery_services_location" {
@@ -31,11 +49,24 @@ variable "service_recovery_services_location" {
       "UK South"
     ]
 
+    Prod_BCDR = [
+      "North Central US"
+    ]
+
     Dev = [
       "UK South"
     ]
 
-    BCDR = [
+    Dev_BCDR = [
+      "North Central US"
+    ]
+
+    default = [
+      "UK South"
+    ]
+
+    default_BCDR = [
+      "North Central US"
     ]
   }
 }
@@ -53,16 +84,28 @@ variable "resource_instance_count" {
   type        = map(any)
   default = {
     Prod = {
-      "EdgeServices" = 1
+      "EdgeServices" = 2
     },
+
+    Prod_BCDR = {
+      "EdgeServices" = 1
+    }
 
     Dev = {
       "EdgeServices" = 1
     },
 
-    BCDR = {
+    Dev_BCDR = {
       "EdgeServices" = 1
     }
+
+    default = {
+      "EdgeServices" = 2
+    },
+
+    default_BCDR = {
+      "EdgeServices" = 1
+    },
   }
 }
 
@@ -74,13 +117,25 @@ variable "resource_recovery_services_instance_count" {
       "EdgeServices" = 1
     },
 
+    Prod_BCDR = {
+      "EdgeServices" = 0
+    }
+
     Dev = {
       "EdgeServices" = 1
     },
 
-    BCDR = {
+    Dev_BCDR = {
       "EdgeServices" = 0
     }
+
+    default = {
+      "EdgeServices" = 1
+    },
+
+    default_BCDR = {
+      "EdgeServices" = 0
+    },
   }
 }
 
@@ -92,11 +147,23 @@ variable "resource_instance_size" {
       "EdgeServices" = "Standard_B1ls"
     },
 
+    Prod_BCDR = {
+      "EdgeServices" = "Standard_B1ls"
+    }
+
     Dev = {
       "EdgeServices" = "Standard_B1ls"
     },
 
-    BCDR = {
+    Dev_BCDR = {
+      "EdgeServices" = "Standard_B1ls"
+    }
+
+    default = {
+      "EdgeServices" = "Standard_B1ls"
+    }
+
+    default_BCDR = {
       "EdgeServices" = "Standard_B1ls"
     }
   }
