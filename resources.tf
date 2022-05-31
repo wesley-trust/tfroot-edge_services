@@ -1,4 +1,4 @@
-/* module "edge_services_virtual_machines" {
+/* module "edge_services" {
   for_each                         = toset(local.resource_locations)
   source                           = "github.com/wesley-trust/tfmodule-linux_virtual_machine"
   service_environment              = terraform.workspace
@@ -40,7 +40,7 @@ module "edge_services_recovery_services" {
   resource_recovery_services_virtual_machines = module.edge_services_virtual_machines[each.value]
 }
 
-module "edge_services_virtual_machines_bcdr" {
+module "edge_services_bcdr" {
   for_each                         = toset(local.resource_bcdr_locations)
   source                           = "github.com/wesley-trust/tfmodule-linux_virtual_machine"
   service_environment              = terraform.workspace
