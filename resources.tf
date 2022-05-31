@@ -12,6 +12,7 @@
   resource_address_space           = lookup(var.resource_address_space, each.value, null)
   resource_dns_servers             = lookup(var.resource_dns_servers, each.value, null)
   resource_network_role            = var.resource_network_role
+  operating_system_platform        = var.operating_system_platform
 }
 
 module "edge_services_network_peering" {
@@ -53,6 +54,7 @@ module "edge_services_virtual_machines_bcdr" {
   resource_address_space           = lookup(var.resource_address_space, each.value, null)
   resource_dns_servers             = lookup(var.resource_dns_servers, each.value, null)
   resource_network_role            = var.resource_network_role
+  operating_system_platform        = var.operating_system_platform
 }
 
 module "edge_services_network_peering_bcdr" {
