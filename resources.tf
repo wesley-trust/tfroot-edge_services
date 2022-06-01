@@ -19,9 +19,6 @@ module "edge_services_network_peering" {
   for_each                   = toset(local.resource_locations)
   source                     = "github.com/wesley-trust/tfmodule-network_peering"
   service_environment        = terraform.workspace
-  service_deployment         = var.service_deployment
-  service_name               = var.service_name
-  service_location           = each.value
   resource_network_peer      = module.edge_services[each.value].network_name
   resource_group_peer        = module.edge_services[each.value].resource_group_name
   resource_network_peer_role = var.resource_network_peer_role
@@ -61,9 +58,6 @@ module "edge_services_network_peering_bcdr" {
   for_each                   = toset(local.resource_bcdr_locations)
   source                     = "github.com/wesley-trust/tfmodule-network_peering"
   service_environment        = terraform.workspace
-  service_deployment         = var.service_deployment
-  service_name               = var.service_name
-  service_location           = each.value
   resource_network_peer      = module.edge_services_bcdr[each.value].network_name
   resource_group_peer        = module.edge_services_bcdr[each.value].resource_group_name
   resource_network_peer_role = var.resource_network_peer_role
