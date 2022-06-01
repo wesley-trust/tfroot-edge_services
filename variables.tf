@@ -82,7 +82,7 @@ variable "resource_name" {
 variable "resource_vm_sku" {
   description = "Desired size for the provisioned resources"
   type        = string
-  default     = "18.04-LTS"
+  default     = "22.04-LTS"
 }
 
 variable "operating_system_platform" {
