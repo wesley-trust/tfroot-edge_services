@@ -1,6 +1,6 @@
 module "edge_services" {
   for_each                         = toset(local.resource_locations)
-  source                           = "github.com/wesley-trust/tfmodule-linux_virtual_machine"
+  source                           = "github.com/wesley-trust/tfmodule-compute"
   service_environment              = terraform.workspace
   service_deployment               = var.service_deployment
   service_name                     = var.service_name
@@ -42,7 +42,7 @@ module "edge_services_network_peering" {
 
 module "edge_services_bcdr" {
   for_each                         = toset(local.resource_bcdr_locations)
-  source                           = "github.com/wesley-trust/tfmodule-linux_virtual_machine"
+  source                           = "github.com/wesley-trust/tfmodule-compute"
   service_environment              = terraform.workspace
   service_deployment               = var.service_deployment
   service_name                     = var.service_name
