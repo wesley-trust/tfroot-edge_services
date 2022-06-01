@@ -1,4 +1,4 @@
-module "edge_services" {
+/* module "edge_services" {
   for_each                         = toset(local.resource_locations)
   source                           = "github.com/wesley-trust/tfmodule-compute"
   service_environment              = terraform.workspace
@@ -23,7 +23,7 @@ module "edge_services_network_peering" {
   resource_network_peer      = module.edge_services[each.value].network_name
   resource_group_peer        = module.edge_services[each.value].resource_group_name
   resource_network_peer_role = var.resource_network_peer_role
-}
+} */
 
 /* module "edge_services_recovery_services" {
   depends_on                                  = [module.edge_services]
@@ -38,7 +38,7 @@ module "edge_services_network_peering" {
   resource_recovery_services_virtual_machines = module.edge_services[each.value]
 } */
 
-module "edge_services_bcdr" {
+/* module "edge_services_bcdr" {
   for_each                         = toset(local.resource_bcdr_locations)
   source                           = "github.com/wesley-trust/tfmodule-compute"
   service_environment              = terraform.workspace
@@ -63,4 +63,4 @@ module "edge_services_network_peering_bcdr" {
   resource_network_peer      = module.edge_services_bcdr[each.value].network_name
   resource_group_peer        = module.edge_services_bcdr[each.value].resource_group_name
   resource_network_peer_role = var.resource_network_peer_role
-}
+} */
