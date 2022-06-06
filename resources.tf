@@ -1,4 +1,4 @@
-/* module "edge_services" {
+module "edge_services" {
   for_each                         = toset(local.resource_locations)
   source                           = "github.com/wesley-trust/tfmodule-compute?ref=v1-compute"
   service_environment              = terraform.workspace
@@ -51,4 +51,3 @@ module "edge_services_network_peering_bcdr" {
   resource_group_peer        = module.edge_services_bcdr[each.value].resource_group_name
   resource_network_peer_role = var.resource_network_peer_role
 }
- */
