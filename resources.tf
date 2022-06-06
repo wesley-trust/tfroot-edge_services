@@ -1,6 +1,6 @@
 /* module "edge_services" {
   for_each                         = toset(local.resource_locations)
-  source                           = "github.com/wesley-trust/tfmodule-compute?ref=v1"
+  source                           = "github.com/wesley-trust/tfmodule-compute?ref=v1-compute"
   service_environment              = terraform.workspace
   service_deployment               = var.service_deployment
   service_name                     = var.service_name
@@ -18,7 +18,7 @@
 
 module "edge_services_network_peering" {
   for_each                   = toset(local.resource_locations)
-  source                     = "github.com/wesley-trust/tfmodule-network_peering?ref=v1"
+  source                     = "github.com/wesley-trust/tfmodule-network_peering?ref=v1-network_peering"
   service_environment        = terraform.workspace
   resource_network_peer      = module.edge_services[each.value].network_name
   resource_group_peer        = module.edge_services[each.value].resource_group_name
@@ -27,7 +27,7 @@ module "edge_services_network_peering" {
 
 module "edge_services_bcdr" {
   for_each                         = toset(local.resource_bcdr_locations)
-  source                           = "github.com/wesley-trust/tfmodule-compute?ref=v1"
+  source                           = "github.com/wesley-trust/tfmodule-compute?ref=v1-compute"
   service_environment              = terraform.workspace
   service_deployment               = var.service_deployment
   service_name                     = var.service_name
@@ -45,7 +45,7 @@ module "edge_services_bcdr" {
 
 module "edge_services_network_peering_bcdr" {
   for_each                   = toset(local.resource_bcdr_locations)
-  source                     = "github.com/wesley-trust/tfmodule-network_peering?ref=v1"
+  source                     = "github.com/wesley-trust/tfmodule-network_peering?ref=v1-network_peering"
   service_environment        = terraform.workspace
   resource_network_peer      = module.edge_services_bcdr[each.value].network_name
   resource_group_peer        = module.edge_services_bcdr[each.value].resource_group_name
