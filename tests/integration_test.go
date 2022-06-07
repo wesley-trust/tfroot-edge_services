@@ -43,7 +43,7 @@ func TestApplyDefault(t *testing.T) {
 	})
 
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
-	defer terraform.Destroy(t, terraformOptions)
+	defer terraform.DestroyE(t, terraformOptions)
 
 	// At the end of the test, run `terraform destroy` again, in case failures leave orphaned resources
 	defer terraform.Destroy(t, terraformOptions)
