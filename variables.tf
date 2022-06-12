@@ -235,3 +235,9 @@ variable "resource_network_peer_role" {
   type        = string
   default     = "spoke"
 }
+
+variable "resource_shutdown_enabled" {
+  description = "Whether to shutdown the VMs at 11pm daily"
+  type        = bool
+  default     = true
+}
