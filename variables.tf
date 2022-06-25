@@ -96,7 +96,7 @@ variable "resource_instance_count" {
   type        = map(any)
   default = {
     Prod = {
-      "EdgeServices" = 2
+      "EdgeServices" = 1
     },
 
     Prod_BCDR = {
@@ -221,7 +221,7 @@ variable "resource_dns_servers" {
 variable "resource_network_interface_count" {
   description = "Desired number of network interfaces"
   type        = string
-  default     = 2
+  default     = 1
 }
 
 variable "resource_network_role" {
