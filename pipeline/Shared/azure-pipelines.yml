@@ -25,6 +25,9 @@ stages:
 # Plan
 - template: Stages/plan.yml
 
+# Auto Apply
+- template: Stages/auto_apply.yml
+
 # Apply
 - template: Stages/apply.yml
 
