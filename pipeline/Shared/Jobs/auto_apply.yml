@@ -1,10 +1,8 @@
 jobs:
-- job: New
-  displayName: 'Create Workspace'
-  dependsOn: Import
-  condition: eq(dependencies.Import.result,'SucceededWithIssues')
+- job: AutoDeploy
+  continueOnError: true
   steps:
-  
+
   # Checkout shared steps
   - checkout: 'tfpipeline-shared'
     displayName: 'Checkout shared Pipeline steps'
@@ -14,4 +12,4 @@ jobs:
   - template: ./Steps/common.yml@tfpipeline-shared
 
   # Run Unit steps
-  - template: ./Steps/workspace.yml@tfpipeline-shared
+  - template: ./Steps/apply.yml@tfpipeline-shared

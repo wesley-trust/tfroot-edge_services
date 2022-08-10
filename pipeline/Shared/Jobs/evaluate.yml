@@ -1,8 +1,9 @@
 jobs:
-- job: New
-  displayName: 'Create Workspace'
-  dependsOn: Import
-  condition: eq(dependencies.Import.result,'SucceededWithIssues')
+- job: Evaluate
+  displayName: 'Evaluate Plan'
+  dependsOn: Plan
+  condition: eq(dependencies.Plan.result,'Succeeded')
+  continueOnError: false
   steps:
   
   # Checkout shared steps
@@ -13,5 +14,5 @@ jobs:
   # Run common steps
   - template: ./Steps/common.yml@tfpipeline-shared
 
-  # Run Unit steps
-  - template: ./Steps/workspace.yml@tfpipeline-shared
+  # Run Plan Evaluation
+  - template: ./Steps/evaluate.yml@tfpipeline-shared
