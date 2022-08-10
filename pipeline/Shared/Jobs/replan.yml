@@ -1,6 +1,6 @@
 jobs:
 - job: ReEvaluate
-  dependsOn: Delay
+#  dependsOn: Delay
   continueOnError: false
   steps:
   
