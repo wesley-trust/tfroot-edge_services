@@ -2,7 +2,9 @@ stages:
 - stage: RePlan
   pool:
     vmImage: 'ubuntu-latest'
-  dependsOn: Apply
+  dependsOn: 
+  - AutoApply
+  - Apply
   condition: and(not(canceled()), not(eq(dependencies.Apply.result, 'Skipped')), eq(dependencies.Plan.outputs['Plan.Variable.ShouldRun'], 'true'))
   jobs:
   
