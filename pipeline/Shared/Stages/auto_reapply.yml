@@ -1,5 +1,5 @@
 stages:
-- stage: AutoApply
+- stage: AutoReApply
   pool:
     vmImage: 'ubuntu-latest'
   dependsOn: Plan
