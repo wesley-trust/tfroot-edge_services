@@ -96,7 +96,7 @@ variable "resource_instance_count" {
   type        = map(any)
   default = {
     Prod = {
-      "EdgeServices" = 2
+      "EdgeServices" = 1
     },
 
     Prod_BCDR = {
