@@ -2,7 +2,7 @@ stages:
 - stage: AutoReApply
   pool:
     vmImage: 'ubuntu-latest'
-  dependsOn: Plan
+  dependsOn: RePlan
   condition: and(not(failed()), not(canceled()), eq(dependencies.Plan.outputs['ReEvaluate.OPAVariable.AutoApproveShouldRun'], 'true'), eq(dependencies.RePlan.outputs['Plan.Variable.ShouldRun'], 'true'))
   jobs:
 
