@@ -1,4 +1,4 @@
-module "edge_services" {
+/* module "edge_services" {
   for_each                         = toset(local.resource_locations)
   source                           = "github.com/wesley-trust/tfmodule-compute?ref=v1.2-compute"
   service_environment              = terraform.workspace
@@ -16,8 +16,8 @@ module "edge_services" {
   resource_shutdown_enabled        = var.resource_shutdown_enabled
   operating_system_platform        = var.operating_system_platform
 
-}
-
+} */
+/* 
 module "edge_services_network_peering" {
   for_each                         = toset(local.resource_locations)
   source                           = "github.com/wesley-trust/tfmodule-network_peering?ref=v1.1-network_peering"
@@ -28,7 +28,7 @@ module "edge_services_network_peering" {
   resource_network_peer_role       = var.resource_network_peer_role
 }
 
-/* module "edge_services_bcdr" {
+module "edge_services_bcdr" {
   for_each                         = toset(local.resource_bcdr_locations)
   source                           = "github.com/wesley-trust/tfmodule-compute?ref=v1.2-compute"
   service_environment              = terraform.workspace
