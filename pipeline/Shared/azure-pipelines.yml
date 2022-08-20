@@ -34,8 +34,8 @@ stages:
 # RePlan
 - template: Stages/replan.yml
 
-# ReApply
-- template: Stages/reapply.yml
-
 # AutoReApply
 - template: Stages/auto_reapply.yml
+
+# ReApply
+- template: Stages/reapply.yml
