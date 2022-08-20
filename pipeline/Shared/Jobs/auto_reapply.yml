@@ -1,17 +1,15 @@
 jobs:
-- job: Plan
-  displayName: 'Create Plan'
-#  dependsOn: Delay
-  continueOnError: false
+- job: AutoDeploy
+  continueOnError: true
   steps:
-  
+
   # Checkout shared steps
   - checkout: 'tfpipeline-shared'
-    displayName: 'Checkout Shared Pipeline Steps'
+    displayName: 'Checkout shared Pipeline steps'
     path: 's/pipeline/Shared/'
 
   # Run common steps
   - template: ./Steps/common.yml@tfpipeline-shared
 
   # Run steps
-  - template: ./Steps/replan_v2.yml@tfpipeline-shared
+  - template: ./Steps/reapply.yml@tfpipeline-shared
