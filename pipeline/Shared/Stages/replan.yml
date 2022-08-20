@@ -5,7 +5,7 @@ stages:
   dependsOn: 
   - AutoApply
   - Apply
-  condition: and(not(canceled()), and(not(eq(dependencies.Apply.result, 'Skipped')), not(eq(dependencies.AutoApply.result, 'Skipped'))), eq(dependencies.Plan.outputs['Plan.Variable.ShouldRun'], 'true'))
+  condition: and(not(canceled()), or(not(eq(dependencies.Apply.result, 'Skipped')), not(eq(dependencies.AutoApply.result, 'Skipped'))), eq(dependencies.Plan.outputs['Plan.Variable.ShouldRun'], 'true'))
   jobs:
   
   # Delay Job
