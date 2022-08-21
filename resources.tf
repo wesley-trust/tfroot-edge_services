@@ -1,4 +1,4 @@
-/* module "edge_services" {
+module "edge_services" {
   for_each                         = toset(local.resource_locations)
   source                           = "github.com/wesley-trust/tfmodule-compute?ref=v1.2-compute"
   service_environment              = terraform.workspace
@@ -17,7 +17,7 @@
   operating_system_platform        = var.operating_system_platform
 
 }
-
+/* 
 module "edge_services_network_peering" {
   for_each                         = toset(local.resource_locations)
   source                           = "github.com/wesley-trust/tfmodule-network_peering?ref=v1.1-network_peering"
