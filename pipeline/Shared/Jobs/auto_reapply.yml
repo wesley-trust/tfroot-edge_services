@@ -1,6 +1,6 @@
 jobs:
 - job: AutoDeploy
-  continueOnError: true
+  continueOnError: false
   steps:
 
   # Checkout shared steps
