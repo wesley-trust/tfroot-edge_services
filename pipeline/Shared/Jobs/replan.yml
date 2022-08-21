@@ -14,4 +14,4 @@ jobs:
   - template: ./Steps/common.yml@tfpipeline-shared
 
   # Run steps
-  - template: ./Steps/replan_v2.yml@tfpipeline-shared
+  - template: ./Steps/replan.yml@tfpipeline-shared
