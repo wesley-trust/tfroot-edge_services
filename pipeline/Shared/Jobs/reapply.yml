@@ -16,4 +16,4 @@ jobs:
         - template: ./Steps/common.yml@tfpipeline-shared
 
         # Run steps
-        - template: ./Steps/apply.yml@tfpipeline-shared
+        - template: ./Steps/reapply.yml@tfpipeline-shared
